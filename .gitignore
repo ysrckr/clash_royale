@@ -33,6 +33,7 @@ yarn-error.log*
 .DS_Store
 .idea
 .vscode
+.swc
 
 # vercel
 .vercel
