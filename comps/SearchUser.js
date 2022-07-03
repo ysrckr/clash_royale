@@ -1,4 +1,4 @@
-const SearchUser = ({ submitSearch, setSearch }) => {
+const SearchUser = ({ submitSearch, setSearch, searchTerm }) => {
 	return (
 		<>
 			<form onSubmit={submitSearch} className="grid col-span-1">
@@ -9,6 +9,7 @@ const SearchUser = ({ submitSearch, setSearch }) => {
 					name="search"
 					id="search"
 					placeholder="Search Users by Tag"
+					value={searchTerm}
 				/>
 				<button
 					className="mx-4 my-3 bg-blue-400 text-white px-2 py-1 rounded"

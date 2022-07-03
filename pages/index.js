@@ -2,10 +2,15 @@ import Head from 'next/head'
 import { useState } from 'react'
 import axios from 'axios'
 import SearchUser from '@comps/SearchUser'
+import UserProfile from '@comps/UserProfile'
+import ClanProfile from '@comps/ClanProfile'
+import SelectButton from '../comps/layout/SelectButton'
 
 export default function Home() {
 	const [searchTerm, setSearchTerm] = useState('')
-	const [user, setUser] = useState({})
+
+	const [user, setUser] = useState(null)
+	const [clan, setClan] = useState(null)
 
 	const setSearch = e => {
 		setSearchTerm(e.target.value)
@@ -22,10 +27,11 @@ export default function Home() {
 			)
 			const data = await res.data
 			setUser(data)
+			if (res.status == 200) {
+				setSearchTerm('')
+			}
 		}
 	}
-
-	console.log(user)
 	return (
 		<>
 			<Head>
@@ -34,12 +40,20 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className="container mx-auto">
-				<div className="m-16">
-					<SearchUser submitSearch={submitSearch} setSearch={setSearch} />
+				<div className="container mx-auto flex justify-between align-center my-3">
+					<SelectButton flag="Player" />
+					<SelectButton flag="Clan" />
 				</div>
-				<div>
-					<h1>{user.name}</h1>
-					<p>{user.role}</p>
+				<div className="m-16">
+					<SearchUser
+						submitSearch={submitSearch}
+						setSearch={setSearch}
+						searchTerm={searchTerm}
+					/>
+				</div>
+				<div className="m-16">
+					{user !== null && <UserProfile name={user.name} />}
+					{clan !== null && <ClanProfile />}
 				</div>
 			</main>
 		</>
