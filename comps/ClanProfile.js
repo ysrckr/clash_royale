@@ -1,6 +1,4 @@
-const ClanProfile = () => {
-  return (
-    <div>ClanProfile</div>
-  )
+const ClanProfile = ({ name }) => {
+	return <div>{name}</div>
 }
 export default ClanProfile
