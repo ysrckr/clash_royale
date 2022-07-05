@@ -1,4 +1,7 @@
-const UserProfile = ({ name }) => {
+import searchStore from 'stores/SearchStore'
+import { observer } from 'mobx-react'
+const UserProfile = () => {
+	const { name } = searchStore.user.self
 	return (
 		<div className="container mx-auto text-center flex flex-col gap-3">
 			<h1 className="text-3xl text-blue-600 font-bold">User Profile</h1>
@@ -9,4 +12,4 @@ const UserProfile = ({ name }) => {
 		</div>
 	)
 }
-export default UserProfile
+export default observer(UserProfile)

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useState } from 'react'
 import axios from 'axios'
 import SearchUser from '@comps/SearchUser'
 import UserProfile from '@comps/UserProfile'
@@ -23,14 +22,14 @@ function Home() {
 			)
 			const data = await res.data
 			if (search.in === 'users') {
-				user.self = data
-				clan.self = null
+				user.setSelf(data)
+				clan.setSelf(null)
 			} else {
-				clan.self = data
-				user.self = null
+				clan.setSelf(data)
+				user.setSelf(null)
 			}
 			if (res.status == 200) {
-				search.term = ''
+				search.setTerm('')
 			}
 		}
 	}
@@ -71,8 +70,8 @@ function Home() {
 					)}
 				</div>
 				<div className="m-16">
-					{user.self !== null && <UserProfile/>}
-					{clan.self !== null && <ClanProfile/>}
+					{user.self !== null && <UserProfile />}
+					{clan.self !== null && <ClanProfile />}
 				</div>
 			</main>
 		</>
