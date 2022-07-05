@@ -71,8 +71,8 @@ function Home() {
 					)}
 				</div>
 				<div className="m-16">
-					{user.self !== null && <UserProfile name={user.self.name} />}
-					{clan.self !== null && <ClanProfile name={clan.self.name} />}
+					{user.self !== null && <UserProfile/>}
+					{clan.self !== null && <ClanProfile/>}
 				</div>
 			</main>
 		</>
