@@ -24,10 +24,10 @@ function Home() {
 			const data = await res.data
 			if (search.in === 'users') {
 				user.self = data
-				clan.self = {}
+				clan.self = null
 			} else {
 				clan.self = data
-				user.self = {}
+				user.self = null
 			}
 			if (res.status == 200) {
 				search.term = ''
@@ -37,7 +37,7 @@ function Home() {
 	return (
 		<>
 			<Head>
-				<title>Create Next App</title>
+				<title>Clash Royale</title>
 				<meta name="description" content="Clash Royale" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
@@ -71,8 +71,8 @@ function Home() {
 					)}
 				</div>
 				<div className="m-16">
-					{user !== null && <UserProfile name={user.self.name} />}
-					{clan !== null && <ClanProfile name={clan.self.name} />}
+					{user.self !== null && <UserProfile name={user.self.name} />}
+					{clan.self !== null && <ClanProfile name={clan.self.name} />}
 				</div>
 			</main>
 		</>

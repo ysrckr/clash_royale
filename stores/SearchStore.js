@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx'
 
 class SearchStore {
 	user = {
-		self: {},
+		self: null,
 		button: true,
 		clickHandler: () => {
 			if (this.user.button) {
@@ -14,7 +14,7 @@ class SearchStore {
 		},
 	}
 	clan = {
-		self: {},
+		self: null,
 		button: false,
 		clickHandler: () => {
 			if (this.clan.button) {
