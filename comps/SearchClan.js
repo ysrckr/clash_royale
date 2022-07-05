@@ -1,3 +1,4 @@
+
 const SearchClan = ({ submitSearch, setSearch, searchTerm }) => {
 	return (
 		<>
@@ -15,7 +16,7 @@ const SearchClan = ({ submitSearch, setSearch, searchTerm }) => {
 					className="mx-4 my-3 bg-blue-400 text-white px-2 py-1 rounded"
 					type="submit"
 				>
-					Search
+				Search
 				</button>
 			</form>
 		</>
