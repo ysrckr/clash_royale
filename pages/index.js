@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import axios from 'axios'
+import Header from '@comps/layout/Header'
 import SearchUser from '@comps/SearchUser'
 import UserProfile from '@comps/UserProfile'
 import ClanProfile from '@comps/ClanProfile'
@@ -35,11 +35,7 @@ function Home() {
 	}
 	return (
 		<>
-			<Head>
-				<title>Clash Royale</title>
-				<meta name="description" content="Clash Royale" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+			<Header />
 			<main className="container mx-auto">
 				<div className="container mx-auto flex justify-between align-center my-3">
 					<SelectButton
